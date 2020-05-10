@@ -13,7 +13,7 @@
 
 def is_even(num: int) -> bool:
     # your code here
-    return False
+    return num%2==0
 
 
 if __name__ == '__main__':
