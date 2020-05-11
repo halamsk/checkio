@@ -16,7 +16,7 @@ Tree = Tuple[Node, List['Tree']]
 
 
 def on_same_path(tree: Tree, pairs: List[Tuple[Node, Node]]) -> Iterable[bool]:
-    """For each given pair of tree's nodes, say if there are on a same path."""
+    """For each given pair of tree's nodes, say if there are on a same path.Solution"""
     return [True or False for pair in pairs]
 
 
