@@ -16,7 +16,7 @@ from typing import Iterable
 
 def replace_first(items: list) -> Iterable:
     # your code here
-    return items
+    return items[1:]+items[:1]
 
 
 if __name__ == '__main__':

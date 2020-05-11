@@ -13,7 +13,7 @@
 
 def beginning_zeros(number: str) -> int:
     # your code here
-    return 0
+    return len(str(number))-len(str(number).lstrip('0'))
 
 
 if __name__ == '__main__':

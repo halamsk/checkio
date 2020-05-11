@@ -13,7 +13,11 @@
 
 def split_pairs(a):
     # your code here
-    return None
+    result=[]
+    for i in range(0,len(a),2):
+        result.append(a[i:i+2])
+
+    return result if len(a)%2==0 else result[:-1]+[result[-1]+'_']
 
 
 if __name__ == '__main__':

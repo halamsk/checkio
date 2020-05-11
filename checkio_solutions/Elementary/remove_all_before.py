@@ -20,7 +20,8 @@ from typing import Iterable
 
 def remove_all_before(items: list, border: int) -> Iterable:
     # your code here
-    return items
+    indx=0 if border not in items else  items.index(border)     
+    return items[indx:]
 
 
 if __name__ == '__main__':

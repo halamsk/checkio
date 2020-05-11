@@ -17,7 +17,8 @@
 
 def nearest_value(values: set, one: int) -> int:
     # your code here
-    return None
+    return min((abs(one-x),x) for x in values)[1]
+
 
 
 if __name__ == '__main__':
