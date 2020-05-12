@@ -24,8 +24,33 @@ HUNDRED = "hundred"
 
 def checkio(number):
 
-    #replace this for solution
-    return 'string representation of n'
+    #solution
+    digits = []
+    while number != 0:
+        digits.append(number%10)
+        number  = number//10
+    
+    result = []
+
+    for i in range(len(digits)):
+        if i==0 and digits[i]>0:
+           txt = FIRST_TEN[digits[i]-1]
+           result.append(txt)
+        elif i==1:
+           if digits[i]==1:
+              txt = SECOND_TEN[digits[0]]
+              if result:
+                 result[0] = txt
+              else:
+                result.append(txt)
+           elif digits[i]>0:
+              txt = OTHER_TENS[digits[i]-2]
+              result.append(txt)
+        elif i==2:
+           result.append(FIRST_TEN[digits[i]-1]+" "+HUNDRED)
+    
+    return " ".join(reversed(result))
+
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
