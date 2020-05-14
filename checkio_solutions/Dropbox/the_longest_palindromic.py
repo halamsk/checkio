@@ -14,9 +14,17 @@
 # 
 # END_DESC
 
-def longest_palindromic(a):
-    # your code here
-    return None
+def longest_palindromic(s):
+    length_palindrome = 0
+    result = ""
+    for i in range(len(s)):
+        for j in range(len(s)):
+            substr = s[i:j+1]
+            if substr == substr[::-1] and substr:
+                if len(substr)>length_palindrome:
+                    result=substr
+                    length_palindrome=len(substr)
+    return result
 
 
 if __name__ == '__main__':
