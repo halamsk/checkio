@@ -15,7 +15,17 @@ from typing import List
 
 def sort_by_ext(files: List[str]) -> List[str]:
     # your code here
-    return files
+    file_list=[]
+    for file in files:
+        file_name = file.split('.')[:-1]
+        extension = file.split('.')[-1]
+        file_name ='.'.join(file_name)
+        if not file_name and extension:
+            file_name='.'+extension+'#'
+            extension=''
+        file_list.append((file_name,extension))
+        
+    return ['.'.join(x).replace('#.','') for x in sorted(file_list,key=lambda x:(x[1],x[0]))]
 
 
 if __name__ == '__main__':

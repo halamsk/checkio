@@ -14,7 +14,7 @@
 from typing import Iterable
 def is_ascending(items: Iterable[int]) -> bool:
     # your code here
-    return True
+    return sorted(items)==items and len(set(items))==len(items)
 
 
 if __name__ == '__main__':

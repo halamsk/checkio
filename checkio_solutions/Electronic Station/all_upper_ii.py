@@ -13,7 +13,7 @@
 
 def is_all_upper(text: str) -> bool:
     # your code here
-    return False
+    return True if text.upper()==text and text and [True for c in text if c.isalpha()] else False
 
 
 if __name__ == '__main__':

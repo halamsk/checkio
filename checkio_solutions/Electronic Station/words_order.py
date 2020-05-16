@@ -4,7 +4,7 @@
 # 
 # Cases you should expect while solving this challenge:
 # 
-# word from the list is not in the text - your function should return False;any word can appear more than once in a text - use only the first one;two words are the same - your function should return False;the condition is case sencetive, which means 'hi' and 'Hi' are two different words.text includes only English letters and spacesInput:Two arguments. The first one is a given text, the second is a list of words.
+# a word from the list is not in the text - your function should return False;any word can appear more than once in a text - use only the first one;two words in the given list are the same - your function should return False;the condition is case sencetive, which means 'hi' and 'Hi' are two different words;the text includes only English letters and spaces.Input:Two arguments. The first one is a given text, the second is a list of words.
 # 
 # Output:A bool.
 # 
@@ -13,7 +13,25 @@
 
 def words_order(text: str, words: list) -> bool:
     # your code here
-    return False
+    text_array = text.split()
+    prev_indx=-1
+    prev_word=''
+    for word in words:
+        try:
+            indx=text_array.index(word) 
+            if indx<prev_indx or  word == prev_word:
+                result=False
+                break
+            else:
+                prev_indx=indx
+                result=True
+            prev_word=word
+        except:
+            result=False
+            break
+        
+    
+    return result
 
 
 if __name__ == '__main__':
