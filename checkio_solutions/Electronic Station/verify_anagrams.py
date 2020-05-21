@@ -16,7 +16,9 @@
 # END_DESC
 
 def verify_anagrams(first_word, second_word):
-    return True or False
+    first_word_dict=dict((c,first_word.lower().count(c)) for c in first_word.replace(" ","").lower())
+    second_word_dict=dict((c,second_word.lower().count(c)) for c in second_word.replace(" ","").lower())
+    return first_word_dict==second_word_dict
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
