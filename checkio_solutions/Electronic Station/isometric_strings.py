@@ -12,9 +12,19 @@
 # END_DESC
 
 def isometric_strings(str1: str, str2: str) -> bool:
-    # your code here
-    return None
-
+    # Base case
+    if not str1 and not str2:
+        return True
+    
+    word_map = {}
+    
+    for char1,char2 in zip(str1,str2):
+        if char1 not in word_map:
+            word_map[char1] = char2
+        else:
+            if word_map[char1] != char2:
+                return False
+    return True
 
 if __name__ == '__main__':
     print("Example:")

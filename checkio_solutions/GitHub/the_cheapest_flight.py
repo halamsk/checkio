@@ -18,11 +18,25 @@
 # END_DESC
 
 from typing import List
+from collections import defaultdict,deque
 
-
-def cheapest_flight(costs: List, a: str, b: str) -> int:
-    # your code here
-    return None
+def cheapest_flight(paths,start,end):
+    d = defaultdict(dict)
+    for i,j,cost in paths: d[i][j] = d[j][i] = cost 
+    
+    routes = deque([(start,set(),0)])
+    min_cost = None
+    
+    while routes:
+        node,seen,cost = routes.popleft()
+        if node == end:
+            if min_cost is None or min_cost>cost:
+                min_cost = cost
+        elif node not in seen:
+            seen = seen | {node}
+            routes.extend((new_city,seen,cost + d[node][new_city]) for new_city in d[node])
+            
+    return 0 if min_cost is None else min_cost
 
 
 if __name__ == '__main__':
